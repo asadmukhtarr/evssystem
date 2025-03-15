@@ -11,3 +11,5 @@
     - Git add .
     - Git commit -m "Your Message"
     - Git push 
+- For Pul : Git Pull ... 
+  - ( We can only take pull of that repositary on which we have access and clone also)
