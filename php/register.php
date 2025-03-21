@@ -6,11 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>
-        <?php 
-            $name = "Asad Mukhtar | Youtuber | Blogger | Full Stack Web Developer";
-            echo $name;
-        ?>
-    </h2>
+    <h2>Register</h2>
 </body>
 </html>
