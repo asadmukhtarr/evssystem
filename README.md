@@ -19,7 +19,11 @@
       - Register 
       - Home
   - CRUD System ...
+  - echo is use for print anything on screen ..
 # Interview Questions
   - What is CDN Files?
   - What is Difference Between cdn file And Installation?
   - Difference Between Include And Require? 
+  - What is difference between echo and print in php ? echo is friendly and useable in all types of project and    print is use for print array ...
+  -  what is use of header function ?? This function is useable in redirec proccess ..
+  - What we can use in concatiation operate in php? We can use .

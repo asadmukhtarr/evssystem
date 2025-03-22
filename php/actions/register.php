@@ -1,0 +1,16 @@
+<?php 
+    $name = $_POST['name']; // name ..
+    $email = $_POST['email']; // email ...
+    $password = $_POST['password']; // password ...
+    $cpassword = $_POST['confirm_password']; // confirm password ..
+    $dob = $_POST['dob']; // date of birth ...
+    $gender = $_POST['gender']; // gender ...
+    // condition ...
+    if($password == $cpassword){
+        echo 'password is match';
+    } else {
+        // redirect ..
+        $warning = "Password Did Not Matched";
+        header('Location:../register.php?warning='.$warning);
+    }
+?>
