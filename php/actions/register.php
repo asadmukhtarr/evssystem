@@ -7,7 +7,12 @@
     $gender = $_POST['gender']; // gender ...
     // condition ...
     if($password == $cpassword){
-        echo 'password is match';
+        include('cn.php'); // for connection ...
+        $query = "INSERT INTO `users`(name,email,password,gender,dob) VALUES ('$name','$email','$password','$gender','$dob')";
+        mysqli_query($cn,$query) or die('cant run query'.mysqli_error($cn));
+         // redirect ..
+         $success = "User Registered Succesfully";
+         header('Location:../register.php?success='.$success);
     } else {
         // redirect ..
         $warning = "Password Did Not Matched";
