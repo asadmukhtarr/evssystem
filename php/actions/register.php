@@ -8,11 +8,19 @@
     // condition ...
     if($password == $cpassword){
         include('cn.php'); // for connection ...
-        $query = "INSERT INTO `users`(name,email,password,gender,dob) VALUES ('$name','$email','$password','$gender','$dob')";
-        mysqli_query($cn,$query) or die('cant run query'.mysqli_error($cn));
-         // redirect ..
-         $success = "User Registered Succesfully";
-         header('Location:../register.php?success='.$success);
+        $result = mysqli_query($cn,"SELECT * FROM `users` WHERE email='$email'");
+        $rows = mysqli_num_rows($result); // will count number of rows ..
+        if($rows > 0){
+             // redirect ..
+            $warning = "Email is already exist";
+            header('Location:../register.php?warning='.$warning);
+        } else {
+            $query = "INSERT INTO `users`(name,email,password,gender,dob) VALUES ('$name','$email','$password','$gender','$dob')";
+            mysqli_query($cn,$query) or die('cant run query'.mysqli_error($cn));
+             // redirect ..
+             $success = "User Registered Succesfully";
+             header('Location:../register.php?success='.$success);   
+        }
     } else {
         // redirect ..
         $warning = "Password Did Not Matched";
