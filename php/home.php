@@ -37,8 +37,10 @@
                     <td><?php echo $row['dob']; ?></td>
                     <td><?php echo ucfirst($row['gender']); ?></td>
                     <td>
-                        <button class="btn btn-success btn-sm"><i class="fa fa-edit"></i></button>
-                        <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+                        <a href="edit.php?id=<?php echo $row['id']; ?>">
+                            <button class="btn btn-success btn-sm"><i class="fa fa-edit"></i></button>
+                        </a>
+                        <button class="btn btn-danger btn-sm" onclick="deleteUser(<?php echo $row['id']; ?>)"><i class="fa fa-trash"></i></button>
                     </td>
 
                 </tr>
@@ -55,8 +57,10 @@
         </div>
     </div>
     <script>
-        function deleteUSer(id){
-            alert(id);
+        function deleteUser(id){
+            if(confirm("Are you sure? You Want To Delete User") == true){
+                window.location = "actions/delete.php?id="+id;
+            }
         }
     </script>
 <?php include('./includes/footer.php'); ?>
