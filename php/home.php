@@ -38,9 +38,7 @@
                     <td><?php echo ucfirst($row['gender']); ?></td>
                     <td>
                         <button class="btn btn-success btn-sm"><i class="fa fa-edit"></i></button>
-                        <a href="actions/delete.php?id=<?php echo $row['id']; ?>">
                         <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
-                        </a>
                     </td>
 
                 </tr>
@@ -56,5 +54,10 @@
             </table>
         </div>
     </div>
+    <script>
+        function deleteUSer(id){
+            alert(id);
+        }
+    </script>
 <?php include('./includes/footer.php'); ?>
 
