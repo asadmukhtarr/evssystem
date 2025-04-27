@@ -37,3 +37,9 @@
       - Install Xampp
       - Install Composer And RUn This command: composer global require laravel/installer
       - For Create New Project In Laravel: Laravel new project-name 
+  - Authentication System ...
+      - composer require laravel/ui
+      - php artisan ui vue --auth
+      - php artisan migrate
+      - npm install /  nodejs install .. 
+      - npm run dev 
