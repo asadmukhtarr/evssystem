@@ -43,8 +43,16 @@
       - php artisan migrate
       - npm install /  nodejs install .. 
       - npm run dev 
+  # laravel guidelines ...
+      - We should every view through controllers ...
+      - Every Route should have specific name ..
+      - Laravel is very case sensitive on server so please make sure about small and capital words of file name ..
 # Documentation ..
       - Login System :
       - After Login 
         - Dashboard
+        - Products ( Create Product , All Products , Categories)
+        - Stock Management ( Sales , Stock overview )
+        - User Management ..
+        - Logout ...
         
