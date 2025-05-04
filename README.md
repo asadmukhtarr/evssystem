@@ -47,12 +47,14 @@
       - We should every view through controllers ...
       - Every Route should have specific name ..
       - Laravel is very case sensitive on server so please make sure about small and capital words of file name ..
+      - namecheap meaning in laravel : folder 
+      - prefix meaning in laravel is: perant route ...
 # Documentation ..
-      - Login System :
+      - Login System :- -:- -:- -:- -:-
       - After Login 
-        - Dashboard
+        - Dashboard 
         - Products ( Create Product , All Products , Categories)
-        - Stock Management ( Sales , Stock overview )
+        - Stock Management ( Sales , Stock overview ) 
         - User Management ..
         - Logout ...
         
