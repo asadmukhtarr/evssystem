@@ -1,3 +1,5 @@
-<div>
-    <h2>Single Product</h2>
-</div>
+@extends('layouts.app')
+@section('title','Product')
+@section('content')
+<h1> Product </h1>
+@endsection

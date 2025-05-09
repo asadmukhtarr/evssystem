@@ -7,19 +7,22 @@ use App\Http\Controllers\ProductsController;
 Route::get('/', function () {
     return view('auth.login');
 })->name('login');
-// dashboard ..
-Route::get('/dashboard',[pagesController::class,'dashboard'])->name('admin.dashboard');
-// products ...
-Route::prefix('products')->group(function(){
-    Route::get('/create',[ProductsController::class,'create'])->name('create.product'); // create ..
-    Route::get('/',[ProductsController::class,'products'])->name('all.products'); // all products ..
-    Route::get('/categories',[ProductsController::class,'categories'])->name('all.categories'); // all products ..
-});
-// stock ..
-Route::get('/stock',[pagesController::class,'stock'])->name('stock.management');
-// users route ..
-Route::prefix('users')->group(function(){
-    Route::get('/',[pagesController::class,'users'])->name('users');
+Route::middleware('auth')->group(function(){
+    // dashboard ..
+    Route::get('/dashboard',[pagesController::class,'dashboard'])->name('admin.dashboard');
+    // products ...
+    Route::prefix('products')->group(function(){
+        Route::get('/create',[ProductsController::class,'create'])->name('create.product'); // create ..
+        Route::get('/',[ProductsController::class,'products'])->name('all.products'); // all products ..
+        Route::get('/categories',[ProductsController::class,'categories'])->name('all.categories'); // all products ..
+    });
+    // stock ..
+    Route::get('/stock',[pagesController::class,'stock'])->name('stock.management');
+    // users route ..
+    Route::prefix('users')->group(function(){
+        Route::get('/',[pagesController::class,'users'])->name('users');
+    });
+
 });
 
 // 404 ..

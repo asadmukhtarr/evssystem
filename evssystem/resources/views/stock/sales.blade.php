@@ -1,3 +1,5 @@
-<div>
-    <h2>Hello Sales </h2>
-</div>
+@extends('layouts.app')
+@section('title','Stock')
+@section('content')
+<h1> Sales </h1>
+@endsection
