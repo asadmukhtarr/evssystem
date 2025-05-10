@@ -33,7 +33,7 @@
             <div class="card-body text-center">
                 <i class="fa fa-tags fa-2x"></i>
                 <h5 class="card-title mt-2">Categories</h5>
-                <p class="card-text">32</p>
+                <p class="card-text">{{ App\Models\category::all()->count() }}</p>
             </div>
         </div>
     </div>
