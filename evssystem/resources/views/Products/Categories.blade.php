@@ -1,12 +1,6 @@
 @extends('layouts.app')
 @section('title','Categories')
 @section('content')
-@if($message = Session::get('success'))
-<div class="alert alert-success alert-dismissible fade show" role="alert">
-    {{ $message }}
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-@endif
 <div class="row">
     <div class="col-lg-3">
         <form action="{{ route('save.category') }}" method="post" enctype="multipart/form-data">
@@ -55,7 +49,9 @@
                     <td>{{ $category->id }}</td>
                     <td> <img src="{{ asset('storage') }}/{{ $category->image }}" height="30px" alt=""> {{ $category->title }}</td>
                     <td>
-                        <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+                        <a href="{{ route('delete.category',$category->id) }}">
+                            <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+                        </a>
                     </td>
                 </tr>
                 @endforeach

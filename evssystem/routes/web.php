@@ -14,8 +14,12 @@ Route::middleware('auth')->group(function(){
     Route::prefix('products')->group(function(){
         Route::get('/create',[ProductsController::class,'create'])->name('create.product'); // create ..
         Route::get('/',[ProductsController::class,'products'])->name('all.products'); // all products ..
-        Route::get('/categories',[ProductsController::class,'categories'])->name('all.categories'); // all products ..
-        Route::post('/save/categories',[ProductsController::class,'save_categories'])->name('save.category');
+        Route::post('/save',[ProductsController::class,'save'])->name('product.save');
+        Route::prefix('categories')->group(function(){
+            Route::get('/',[ProductsController::class,'categories'])->name('all.categories'); // all products ..
+            Route::post('/save',[ProductsController::class,'save_categories'])->name('save.category'); // for save category ...
+            Route::get('/delete/{id}',[ProductsController::class,'delete_category'])->name('delete.category'); // delete category ...
+        });
     });
     // stock ..
     Route::get('/stock',[pagesController::class,'stock'])->name('stock.management');

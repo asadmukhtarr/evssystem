@@ -9,11 +9,24 @@ class ProductsController extends Controller
 {
     // for create ..
     public function create(){
-        return view('Products.create');
+        $categories = category::all();
+        return view('Products.create',compact('categories'));
     }
     // products ..
     public function products(){
         return view('Products.Products');
+    }
+    // for save product ..
+    public function save(Request $request){
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'price' => 'required|numeric|min:0',
+            'category_id' => 'required|exists:categories,id',
+            'image' => 'required|image|max:2048',
+            'stock_quantity' => 'required|integer|min:0',
+        ]);
+        return $request;
     }
     // categories ...
     public function categories(){
@@ -33,5 +46,10 @@ class ProductsController extends Controller
         $category->image = "categories/".$imgAddress;
         $category->save();
         return redirect()->back()->with('success','Category Saved Succesfully');
+    }
+    public function delete_category($id){
+        $category = category::find($id);
+        $category->delete();
+        return redirect()->back()->with('warning','Category Deleted Succesfully');
     }
 }

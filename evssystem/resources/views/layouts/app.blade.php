@@ -111,6 +111,7 @@
         </nav>
 
         <main class="py-4 container">
+            @include('includes.flash')
             @yield('content')
         </main>
     </div>
