@@ -42,12 +42,16 @@
                 <tr>
                     <th><i class="fa fa-sort-numeric-asc"></i> Sr #</th>
                     <th><i class="fa fa-file-text"></i> Title</th>
+                    <th> <i class="fa fa-list"></i> Products</th>
                     <th><i class="fa fa-cogs"></i> Action</th>
                 </tr>
                 @foreach($categories as $category)
                 <tr>
                     <td>{{ $category->id }}</td>
                     <td> <img src="{{ asset('storage') }}/{{ $category->image }}" height="30px" alt=""> {{ $category->title }}</td>
+                    <td>
+                        {{ $category->products->count() }}
+                    </td>
                     <td>
                         <a href="{{ route('delete.category',$category->id) }}">
                             <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>

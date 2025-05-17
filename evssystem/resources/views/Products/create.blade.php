@@ -10,7 +10,7 @@
                 <i class="fa fa-plus-circle"></i> Create New Product
             </div>
             <div class="card-body">
-                <form action="{{ route('product.save') }}" method="post">
+                <form action="{{ route('product.save') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
                         <label for="productName" class="form-label">

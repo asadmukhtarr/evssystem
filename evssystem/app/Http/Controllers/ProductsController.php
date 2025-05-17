@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\category;
+use App\Models\product;
 
 class ProductsController extends Controller
 {
@@ -14,7 +15,8 @@ class ProductsController extends Controller
     }
     // products ..
     public function products(){
-        return view('Products.Products');
+        $products = product::all();
+        return view('Products.Products',compact('products'));
     }
     // for save product ..
     public function save(Request $request){
@@ -26,7 +28,24 @@ class ProductsController extends Controller
             'image' => 'required|image|max:2048',
             'stock_quantity' => 'required|integer|min:0',
         ]);
-        return $request;
+        // Handle image upload
+        $imagePath = null;
+        if ($request->hasFile('image')) {
+            $imgAddress = "asad".time() . "." . $request->image->getClientOriginalExtension();
+            $request->image->storeAs('products',$imgAddress,'public');
+        }
+
+        // Insert using object notation
+        $product = new product();
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->price = $request->price;
+        $product->category_id = $request->category_id;
+        $product->image = "products/".$imgAddress;
+        $product->stock_quantity = $request->stock_quantity;
+        $product->save();
+
+        return redirect()->back()->with('message','Product Created Succesfully');
     }
     // categories ...
     public function categories(){
