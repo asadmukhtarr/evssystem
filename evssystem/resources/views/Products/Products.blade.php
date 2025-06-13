@@ -22,15 +22,19 @@
                 <th> <img src="{{ asset('storage') }}/{{ $product->category->image }}" height="30px" alt=""> {{ $product->category->title }} </th>
                 <td>{{ $product->stock_quantity }}</td>
                 <td>
+                    <a href="{{ route('delete.product',$product->id) }}">
                     <button class="btn btn-danger btn-sm">
                         <i class="fa fa-trash"></i>
                     </button>
+                    </a>
                     <button class="btn btn-success btn-sm m-1">
                         <i class="fa fa-edit"></i>
                     </button>
+                    <a href="{{ route('view.product',$product->id) }}">
                      <button class="btn btn-info btn-sm ">
                         <i class="fa fa-eye"></i>
                     </button>
+                    </a>
                 </td>
             </tr>
             @endforeach

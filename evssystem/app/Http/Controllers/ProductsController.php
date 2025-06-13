@@ -71,4 +71,13 @@ class ProductsController extends Controller
         $category->delete();
         return redirect()->back()->with('warning','Category Deleted Succesfully');
     }
+    public function view($id){
+        $product = product::with('category')->findorFail($id);
+        return view('products.product',compact('product'));
+    }
+    public function delete($id){
+        $product = product::find($id);
+        $product->delete();
+        return redirect()->back()->with('warning','Product Deleted Succesfully');
+    }
 }

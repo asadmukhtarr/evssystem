@@ -13,7 +13,9 @@ Route::middleware('auth')->group(function(){
     // products ...
     Route::prefix('products')->group(function(){
         Route::get('/create',[ProductsController::class,'create'])->name('create.product'); // create ..
+        Route::get('/view/{id}',[ProductsController::class,'view'])->name('view.product'); // products ..
         Route::get('/',[ProductsController::class,'products'])->name('all.products'); // all products ..
+        Route::get('/product/{id}',[ProductsController::class,'delete'])->name('delete.product'); // delete  product ..
         Route::post('/save',[ProductsController::class,'save'])->name('product.save');
         Route::prefix('categories')->group(function(){
             Route::get('/',[ProductsController::class,'categories'])->name('all.categories'); // all products ..
@@ -22,7 +24,7 @@ Route::middleware('auth')->group(function(){
         });
     });
     // stock ..
-    Route::get('/stock',[pagesController::class,'stock'])->name('stock.management');
+    Route::get('/sales',[salesController::class,'sales'])->name('sales.management');
     // users route ..
     Route::prefix('users')->group(function(){
         Route::get('/',[pagesController::class,'users'])->name('users');
