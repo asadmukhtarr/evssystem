@@ -60,7 +60,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('stock.management') }}">
+                                <a class="nav-link" href="{{ route('sales.management') }}">
                                     <i class="fa fa-cubes"></i> Stock
                                 </a>
                             </li>

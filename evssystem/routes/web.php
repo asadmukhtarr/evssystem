@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\pagesController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\salesController;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -24,7 +25,8 @@ Route::middleware('auth')->group(function(){
         });
     });
     // stock ..
-    Route::get('/sales',[salesController::class,'sales'])->name('sales.management');
+    Route::get('/sales',[salesController::class,'index'])->name('sales.management');
+    Route::post('/save',[salesController::class,'save'])->name('sale.save');
     // users route ..
     Route::prefix('users')->group(function(){
         Route::get('/',[pagesController::class,'users'])->name('users');
