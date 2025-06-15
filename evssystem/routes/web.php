@@ -26,6 +26,7 @@ Route::middleware('auth')->group(function(){
     });
     // stock ..
     Route::get('/sales',[salesController::class,'index'])->name('sales.management');
+    Route::get('/search',[salesController::class,'search'])->name('search.management');
     Route::post('/save',[salesController::class,'save'])->name('sale.save');
     // users route ..
     Route::prefix('users')->group(function(){

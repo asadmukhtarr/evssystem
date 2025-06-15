@@ -8,10 +8,19 @@ use App\Models\sale;
 
 class salesController extends Controller
 {
-    //
+    // 
     public function index(){
         $products = product::all();
         $sales = sale::orderby('id','desc')->get();
+        return view('stock.sales',compact('products','sales'));
+    }
+    public function search(Request $request){
+        if(!empty($request->search)){
+            $sales = Sale::where('name', 'like', '%' . $request->search . '%')->get();
+        } else {
+            $sales = Sale::orderby('id','desc')->get();
+        }
+        $products = product::all();
         return view('stock.sales',compact('products','sales'));
     }
     public function save(Request $request){
