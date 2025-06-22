@@ -78,7 +78,9 @@
         <tr>
             <td>{{ $sale->id }}</td>
             <td> {{ $sale->name }}</td>
-            <td>{{ $sale->product->name }} <span class="text-danger">{{ $sale->product->stock_quantity }} </span></td>
+            <td>{{ $sale->product->name ?? 'N/A' }} <span class="text-danger">{{ $sale->product->stock_quantity ??
+                'N/A' }}
+                </span></td>
             <td>{{ $sale->quantity }}</td>
             <td>{{ $sale->total }} Pkr </td>
         </tr>
