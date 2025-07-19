@@ -9,7 +9,7 @@ use App\Models\category;
 Route::get('/products',function(){
     $products = product::all();
     return response()->json($products);
-});
+}); 
 // single product ..
 Route::get('/product/{id}',function($id){
     $product = product::find($id);
