@@ -77,3 +77,14 @@
         - Stock Management ( Sales , Stock overview )
         - User Management ..
         - Logout ...
+
+# Routes In React
+
+        - Step # 1: Npm install react router dom ..
+        - Step # 2: import { BrowserRouter } from "react-router-dom" and  <BrowserRouter>
+                                                                          <App />
+                                                                      </BrowserRouter>
+        - Step # 3:  <Routes>
+                <Route path="/" element={<Home />} />
+                 </Routes>
+        - Step # 4: import import { Link } from 'react-router-dom' and use Link instead of <a>
